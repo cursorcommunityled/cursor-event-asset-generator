@@ -2,11 +2,10 @@
 
 > A single-page tool for Cursor Community ambassadors to generate on-brand event assets - no backend, no build step, runs anywhere.
 
-[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-live-brightgreen?logo=github)](https://kamilstanuch.github.io/cursor-ambassador-studio/)
 [![HTML/CSS/JS](https://img.shields.io/badge/stack-HTML%20%2B%20CSS%20%2B%20JS-orange)]()
 [![License](https://img.shields.io/badge/license-MIT-blue)]()
 
-**[Open the live app](https://kamilstanuch.github.io/cursor-ambassador-studio/)**
+**[Try the live demo](https://kamilstanuch.github.io/cursor-ambassador-studio/)**
 
 ---
 
@@ -25,7 +24,7 @@
 
 ## Quick start
 
-### Use the hosted version (recommended)
+### Try the demo
 
 Open **[kamilstanuch.github.io/cursor-ambassador-studio](https://kamilstanuch.github.io/cursor-ambassador-studio/)** - nothing to install, everything works.
 
@@ -37,8 +36,8 @@ You can open `index.html` directly in your browser - browsing, previewing, and e
 
 ```bash
 # Clone and serve
-git clone https://github.com/kamilstanuch/cursor-ambassador-studio.git
-cd cursor-ambassador-studio
+git clone https://github.com/cursorcommunityled/cursor-event-asset-generator.git
+cd cursor-event-asset-generator
 python3 -m http.server 8080
 ```
 
