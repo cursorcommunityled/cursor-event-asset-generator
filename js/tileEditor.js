@@ -18,6 +18,14 @@ import {
   getThemedVariantId,
 } from "./lumaTileAssets.js";
 
+function escapeHtml(s) {
+  return String(s)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
 /**
  * @param {HTMLElement} container
  * @param {{ boot?: string | undefined, navigate: (p: string) => void, onGuidelines: () => void, onColours: () => void }} ctx
@@ -357,7 +365,7 @@ export function mountTileEditor(container, { boot, navigate, onGuidelines, onCol
       return;
     }
     selectEl.innerHTML = CATEGORY_ORDER.map(
-      (c) => `<option value="${c}">${CATEGORY_LABELS[c]}</option>`,
+      (c) => `<option value="${escapeHtml(c)}">${escapeHtml(CATEGORY_LABELS[c])}</option>`,
     ).join("");
     selectEl.value = currentCat;
   }
@@ -367,7 +375,7 @@ export function mountTileEditor(container, { boot, navigate, onGuidelines, onCol
       return;
     }
     const opts = getCategoryAssets(category);
-    selectEl.innerHTML = opts.map((a) => `<option value="${a.id}">${a.label}</option>`).join("");
+    selectEl.innerHTML = opts.map((a) => `<option value="${escapeHtml(a.id)}">${escapeHtml(a.label)}</option>`).join("");
     if (opts.some((a) => a.id === currentId)) {
       selectEl.value = currentId;
     } else if (opts[0]) {
