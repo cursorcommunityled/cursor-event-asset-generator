@@ -3,6 +3,14 @@ import { toPng } from "html-to-image";
 import { BRAND_TOKENS } from "./brandTokens.js";
 import { getAvatarOptions } from "./lumaTileAssets.js";
 
+function escapeHtml(s) {
+  return String(s)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
 const EXPORT_SIZE = 512;
 
 /**
@@ -107,7 +115,7 @@ export function mountAvatarTool(container, { navigate, onGuidelines, onColours }
       return;
     }
     const list = filteredOptions();
-    variantSelect.innerHTML = list.map((o) => `<option value="${o.id}">${o.label}</option>`).join("");
+    variantSelect.innerHTML = list.map((o) => `<option value="${escapeHtml(o.id)}">${escapeHtml(o.label)}</option>`).join("");
     if (list.some((o) => o.id === assetId)) {
       variantSelect.value = assetId;
     } else if (list[0]) {
